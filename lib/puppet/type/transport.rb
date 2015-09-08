@@ -6,6 +6,10 @@ Puppet::Type.newtype(:transport) do
     desc "The name of the network transport."
   end
 
+  newparam(:endpoint) do
+
+  end
+
   newparam(:username) do
   end
 
