@@ -42,6 +42,13 @@ module PuppetX::Puppetlabs::Transport
     def powershell(cmd)
       Puppet.debug("Executing on #{@host}:\n#{cmd.gsub(@options[:pass], '*' * @options[:pass].size)}")
       @winrm.create_executor.run_powershell_script(cmd)
+    rescue => ex
+      if ex.message =~ /Error: Bad HTTP response returned from server \(400\)/i
+        Puppet.debug("Error 400 is encountered. This needs to be ignored and command needs to be reexecuted")
+        @winrm.create_executor.run_powershell_script(cmd)
+      else
+        raise ex.message
+      end
     end
   end
 end
