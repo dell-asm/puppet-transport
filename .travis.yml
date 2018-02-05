@@ -1,14 +1,13 @@
 language: ruby
 script: "bundle exec rake spec SPEC_OPTS='--format documentation'"
 rvm:
-  - 1.9.3
+  - 2.4.2
 env:
-  - PUPPET_GEM_VERSION="~> 3.2.0"
-  - PUPPET_GEM_VERSION=">= 3.0.0"
+  - PUPPET_GEM_VERSION="~> 5.3.3"
 matrix:
   allow_failures:
-    - rvm: 1.9.3
-      env: PUPPET_GEM_VERSION=">= 3.0.0"
+    - rvm: 2.4.2
+      env: PUPPET_GEM_VERSION=">= 5.3.3"
 notifications:
   email: false
   flowdock: a4d40af9690ef538447d30fd7f0ececd
