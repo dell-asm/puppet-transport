@@ -7,8 +7,8 @@ gem 'net-ssh'
 gem 'net-scp'
 
 group :development, :test do
-  gem 'rake'
-  gem 'rspec', "~> 2.11.0", :require => false
+  gem 'rake', "<11.0"
+  gem 'rspec', "~>, "2.11.0", :require => false
   gem 'mocha', "~> 0.10.5", :require => false
   gem 'puppetlabs_spec_helper', :require => false
   gem 'puppet-lint', :require => false
@@ -26,5 +26,5 @@ ENV['GEM_PUPPET_VERSION'] ||= ENV['PUPPET_GEM_VERSION']
 if puppetversion = ENV['GEM_PUPPET_VERSION']
   gem 'puppet', puppetversion
 else
-  gem 'puppet', :require => false
+  gem 'puppet', "5.3.3", :require => false
 end
